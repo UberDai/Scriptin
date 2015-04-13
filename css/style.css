@@ -1,6 +1,6 @@
 .scriptin-layer
 {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -12,6 +12,27 @@
 .scriptin-editable-element
 {
 	position: absolute;
-	box-shadow: 0 0 15px 0 #4A4A4A;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, .7);
 	z-index: 1001;
+}
+
+.scriptin-editable-element a
+{
+	opacity: 0;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+	background-color: rgba(255, 255, 255, .7);
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url('https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xta1/v/t1.0-1/p160x160/11073974_773412582754611_7084815953365813388_n.jpg?oh=891fd2639af07829289ffa1b50535d36&oe=559B4381&__gda__=1440664495_b3c812fd1da18738848a96ac88e1c296');
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.scriptin-editable-element:hover a
+{
+	opacity: 1;
 }

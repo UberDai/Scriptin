@@ -41,9 +41,30 @@ Scriptin.Tool =
 
 		for (var i = 0; i < layers.length; i++)
 		{
-			var editableEl = this._getOverlappingElement(layers[i], elements);
-			this._appendLayer(layers[i], !!editableEl);
+			if (!this._getOverlappingElement(layers[i], elements))
+				this._appendLayer(layers[i]);
 		}
+
+		for (var i = 0; i < elements.length; i++)
+			this._appendEditableElement(elements[i]);
+	},
+
+	_appendEditableElement: function (element)
+	{
+		var box = element.container.getBoundingClientRect();
+		var div = document.createElement('div');
+		div.className = 'scriptin-editable-element';
+		div.style.top = box.top +'px';
+		div.style.left = box.left +'px';
+		div.style.width = box.width +'px';
+		div.style.height = box.height +'px';
+
+		var a = document.createElement('a');
+		a.href = 'javascript: void(0)';
+
+		div.appendChild(a);
+
+		document.body.appendChild(div);
 	},
 
 	_generateLayers: function (elements)
@@ -89,12 +110,9 @@ Scriptin.Tool =
 		return layers;
 	},
 
-	_appendLayer: function (layer, editableElement)
+	_appendLayer: function (layer)
 	{
 		var div = document.createElement('div');
-
-		if (editableElement)
-			return ;
 
 		div.className = 'scriptin-layer';
 		div.style.left = layer.left +'px';
