@@ -1,0 +1,40 @@
+{
+    "manifest_version": 2,
+
+    "name": "Scriptin",
+    "description": "Scriptin.",
+    "version": "1.0",
+
+    "icons":
+    {
+        "48": "icon.png"
+    },
+
+    "browser_action":
+    {
+        "default_icon": "icon.png",
+        "default_title": "Scriptin"
+    },
+
+    "permissions":
+    [
+        "activeTab"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": [ "<all_urls>" ],
+            "css": [ "css/style.css" ],
+            "js":
+            [
+                "js/scriptin.js",
+                "js/tool.js",
+                "js/util.js"
+            ]
+        }
+    ],
+
+    "web_accessible_resources": [
+        "js/*"
+    ]
+}
